@@ -1,0 +1,116 @@
+<div class="container" [hidden]="bookAdded">
+ <div class="login_box">
+   <div class="login_header">
+     <h1 style="margin-top: 30px;">New Book Information</h1>
+     <span style="font-size:small; color:red">* is a required field</span>
+   </div>
+   <div class="col-md-5">
+     <div class="form-area">
+       <h3 style="margin-top: 30px;">New Book Information <span style="font-size:small; color:red">* is a required field</span></h3>
+       <form (ngSubmit)="onSubmit()">
+         <br style="clear:both">
+
+         <div class="form-group">
+           <span class="label label-default">Active</span> <input checked data-toggle="toggle" type="checkbox" [(ngModel)]="newBook.active" name="active">
+         </div>
+         <div class="form-group float-label-control">
+           <label>Title</label>
+           <input class="form-control"  id="title" type="text"  [(ngModel)]="newBook.title" name="title" placeholder="Title" required>
+         </div>
+
+         <div class="form-group float-label-control">
+           <label>Author</label>
+           <input class="form-control" id="author" type="text" required [(ngModel)]="newBook.author" name="author" placeholder="Author">
+         </div>
+
+         <div class="form-group float-label-control">
+           <label label-right>Publisher</label>
+           <input class="form-control" id="publisher" type="text" required [(ngModel)]="newBook.publisher" name="publisher" placeholder="Publisher">
+         </div>
+
+         <div class="form-group float-label-control">
+           <label label-right>DATE</label>
+           <input class="form-control" id="publicationDate" type="date" required [(ngModel)]="newBook.publicationDate" name="publicationDate" placeholder="PublicationDate">
+         </div>
+
+         <div class="form-group">
+           <select class="form-control" id="category" [(ngModel)]="newBook.category" name="category">
+             <option hidden value="Category">Category</option>
+             <option value="Management">Management</option>
+             <option value="Fiction">Fiction</option>
+             <option value="Engineering">Engineering</option>
+             <option value="Arts/Literature">Arts/Literature</option>
+           </select>
+         </div>
+
+         <div class="form-group float-label-control">
+           <select class="form-control" id="format" [(ngModel)]="newBook.format" name="format">
+             <option hidden >Format</option>
+             <option>Mobile</option>
+             <option>Hardcover</option>
+           </select>
+         </div>
+
+         <div class="form-group float-label-control">
+           <label>Number Of Pages</label>
+           <input class="form-control" id="pageNumber" type="number" [(ngModel)]="newBook.numberOfPage" name="numberOfPages" step="1" placeholder="Number of Pages">
+         </div>
+
+         <div class="form-group float-label-control">
+           <label>ISBN</label>
+           <input class="form-control" id="isbn" type="text" required [(ngModel)]="newBook.isbn" name="isbn" placeholder="ISBN">
+         </div>
+
+         <br>
+
+         <div class="form-group float-label-control">
+           <label>List Price</label>
+           <input class="form-control" id="listPrice" type="number" [(ngModel)]="newBook.listPrice" name="listPrice" step="0.01" placeholder="List Price">
+         </div>
+
+         <div class="form-group float-label-control">
+           <label>Our price</label>
+           <input class="form-control" id="ourPrice" type="number" [(ngModel)]="newBook.ourPrice" name="ourPrice" step="0.01" placeholder="Our Price">
+         </div>
+
+         <div class="form-group float-label-control">
+           <label>Shipping Weight</label>
+           <input class="form-control" id="shippingWeight" type="number" [(ngModel)]="newBook.shippingWeight" name="shippingWeight" step="0.01" placeholder="Shipping Weight">
+         </div>
+
+         <div class="form-group">
+           <select class="form-control float-label-control" id="language" [(ngModel)]="newBook.language" name="language">
+             <option hidden >Language</option>
+             <option>english</option>
+             <option>French</option>
+             <option>Spanish</option>
+           </select>
+         </div>
+
+         <br>
+
+         <div class="form-group float-label-control">
+           <label>Stock</label>
+           <input class="form-control" id="inStockNumber" type="number" [(ngModel)]="newBook.inStockNumber" name="inStockNumber" step="0.01" placeholder="Numbers In Stock" required>
+         </div>
+
+         <div class="form-group float-label-control">
+           <label>Description</label>
+           <textarea class="form-control" id="description" [(ngModel)]="newBook.description" name="description" placeholder="Description" required></textarea>
+         </div>
+
+         <div class="form-group">
+           <input id="tile" type="file" id="bookImage" name="bookImage" (change)="uploadImageService.fileChangeEvent($event)">
+         </div>
+
+         <button type="submit"  class="btn btn-primary pull-right">Add Book</button>
+         <a class="btn btn-warning pull-left" routerLink="/bookList">Cancel</a>
+       </form>
+     </div>
+   </div>
+ </div>
+</div>
+
+<div class="row" [hidden]="!bookAdded">
+  <h3>Book added successfully!</h3>
+</div>

@@ -1,0 +1,25 @@
+<div [hidden]="loggedIn" class="row">
+  <div class="col-md-6 offset-md-3">
+    <div class="card">
+      <div class="card-block">
+        <img class="mx-auto d-block" src="/assets/img/logo.png">
+        <h1 class="text-center">Login</h1>
+        <form (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label >USER-NAME</label>
+            <input type="email" class="form-control" [(ngModel)]="credential.username" name="username" id="username" required>
+          </div>
+          <div class="form-group">
+            <label >Password</label>
+            <input type="password" class="form-control"[(ngModel)]="credential.password" name="password" id="password" required>
+          </div>
+          <input type="submit" class="btn btn-success btn-block" value="submit">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--<div *ngIf="getLoggedIn()">
+  <h2>YOU ARE LOGGED IN</h2>
+</div>-->

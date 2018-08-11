@@ -1,0 +1,42 @@
+<!--
+<nav class="navbar navbar-toggleable-md navbar-light bg-success">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#" style="color: white; font-style: normal">ADMIN PORTAL</a>
+
+  <span class="example-spacer"></span>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item">
+        <a class="nav-link" href="#" [style.color]="'white'" routerLink="/login">Login</a>
+      </li>
+
+      <li class="nav-item active" *ngIf="isLogedIn">
+        <a class="nav-link " href="#" [style.color]="'white'">View Book List <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active" *ngIf="isLogedIn">
+        <a class="nav-link" href="#" [style.color]="'white'">Add a Book</a>
+      </li>
+      <li class="nav-item active" *ngIf="isLogedIn">
+        <a class="nav-link" href="#" [style.color]="'white'">Logout</a>
+      </li>
+    </ul>
+    &lt;!&ndash;<form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>&ndash;&gt;
+  </div>
+</nav>
+-->
+<div class="page-top" style="width: 100%; height: 20px; background-color: #f46b42"></div>
+<mat-toolbar class="mat-primary">
+  <a routerLink="/bookList"><h3 [style.color]="'white'">ADMIN PORTAL</h3></a>
+  <span class="example-spacer"></span>
+  <a mat-button *ngIf="!getLoggedIn()" [style.color]="'white'" routerLink="/login">LOGIN</a>
+  <span *ngIf="getLoggedIn()"><a mat-button [style.color]="'white'" routerLink="/bookList">View Book List</a></span>
+  <span *ngIf="getLoggedIn()"><a mat-button [style.color]="'white'" routerLink="/addNewBook">Add a Book</a></span>
+  <span *ngIf="getLoggedIn()"><a mat-button [style.color]="'white'" (click)="onLogout()">Logout</a></span>
+</mat-toolbar>
